@@ -8,4 +8,7 @@ variable "environment" {
   type        = string
 }
 
-
+variable "bastion_baseami" {
+  description = "Custom base AMI for bastion nodes"
+  type        = string
+}

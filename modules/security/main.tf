@@ -1,6 +1,6 @@
 resource "aws_security_group" "bastion_security_group" {
-  name        = "cs-sg-${var.environment}-bastion"
-  description = "Security group for the Bastion instance on ${var.environment}"
+  name        = "cs-sg-${var.wordpress_environment_id}-bastion"
+  description = "Security group for the Bastion instance on ${var.wordpress_environment_id}"
   vpc_id      = var.wordpress_vpc_id
 
   ingress {
@@ -12,6 +12,6 @@ resource "aws_security_group" "bastion_security_group" {
   }
 
   tags = {
-    Name = "cs-sg-${var.environment}-bastion"
+    Name = "cs-sg-${var.wordpress_environment_id}-bastion"
   }
 }

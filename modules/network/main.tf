@@ -49,6 +49,14 @@ resource "aws_eip" "elastic_ip_public_2a_wordpress" {
   }
 }
 
+resource "aws_eip" "elastic_ip_bastion" {
+  vpc = true
+  tags = {
+    Name      = "cs-eip-${var.environment}-bastion"
+    CreatedBy = "Terraform"
+  }
+}
+
 # NAT Gateways
 resource "aws_nat_gateway" "nat_gateway_public_2a_wordpress" {
   allocation_id = aws_eip.elastic_ip_public_2a_wordpress.id
