@@ -39,3 +39,13 @@ resource "aws_subnet" "subnet_private_2a_wordpress" {
     CreatedBy = "Terraform"
   }
 }
+
+# Elastic IPs
+resource "aws_eip" "elastic_ip_public_2a_wordpress" {
+  vpc = true
+  tags = {
+    Name      = "cs-eip-${var.environment}-ngw-public-2a"
+    CreatedBy = "Terraform"
+  }
+}
+
