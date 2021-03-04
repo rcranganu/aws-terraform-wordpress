@@ -17,3 +17,14 @@ resource "aws_internet_gateway" "internet_gateway_wordpress" {
     CreatedBy = "Terraform"
   }
 }
+
+# Create public subnet 
+resource "aws_subnet" "subnet_public_2a_wordpress" {
+  availability_zone = "${var.region}a"
+  vpc_id            = aws_vpc.vpc_wordpress.id
+  cidr_block        = "172.16.0.0/26"
+  tags = {
+    Name      = "cs-subnet-${var.environment}-public-2a"
+    CreatedBy = "Terraform"
+  }
+}
