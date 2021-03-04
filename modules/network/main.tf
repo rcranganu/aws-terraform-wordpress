@@ -28,3 +28,14 @@ resource "aws_subnet" "subnet_public_2a_wordpress" {
     CreatedBy = "Terraform"
   }
 }
+
+# Create private subnet 
+resource "aws_subnet" "subnet_private_2a_wordpress" {
+  availability_zone = "${var.region}a"
+  vpc_id            = aws_vpc.vpc_wordpress.id
+  cidr_block        = "172.16.1.0/26"
+  tags = {
+    Name      = "cs-subnet-${var.environment}-private-2a"
+    CreatedBy = "Terraform"
+  }
+}
