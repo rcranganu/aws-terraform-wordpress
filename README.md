@@ -1,3 +1,5 @@
+[![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+
 # AWS Terraform WordPress
 
 ### THIS IS WORK IN PROGRESS
