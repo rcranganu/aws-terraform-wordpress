@@ -49,3 +49,53 @@ resource "aws_eip" "elastic_ip_public_2a_wordpress" {
   }
 }
 
+# NAT Gateways
+resource "aws_nat_gateway" "nat_gateway_public_2a_wordpress" {
+  allocation_id = aws_eip.elastic_ip_public_2a_wordpress.id
+  subnet_id     = aws_subnet.subnet_public_2a_wordpress.id
+  tags = {
+    Name      = "cs-ngw-${var.environment}-public-2a"
+    CreatedBy = "Terraform"
+  }
+}
+
+# Route Tables
+resource "aws_route_table" "route_table_public_wordpress" {
+  vpc_id = aws_vpc.vpc_wordpress.id
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.internet_gateway_wordpress.id
+  }
+  tags = {
+    Name      = "cs-rt-${var.environment}-public"
+    CreatedBy = "Terraform"
+  }
+}
+
+resource "aws_route_table" "route_table_private_2a_wordpress" {
+  vpc_id = aws_vpc.vpc_wordpress.id
+  route {
+    cidr_block     = "0.0.0.0/0"
+    nat_gateway_id = aws_nat_gateway.nat_gateway_public_2a_wordpress.id
+  }
+  tags = {
+    Name      = "cs-rt-${var.environment}-private-2a"
+    CreatedBy = "Terraform"
+  }
+}
+
+# Association of Route Tables with Subnets
+resource "aws_route_table_association" "route_table_association_public_2a_wordpress" {
+  subnet_id      = aws_subnet.subnet_public_2a_wordpress.id
+  route_table_id = aws_route_table.route_table_public_wordpress.id
+}
+
+resource "aws_route_table_association" "route_table_association_private_2a_wordpress" {
+  subnet_id      = aws_subnet.subnet_private_2a_wordpress.id
+  route_table_id = aws_route_table.route_table_private_2a_wordpress.id
+}
+
+resource "aws_main_route_table_association" "main_route_wordpress" {
+  vpc_id         = aws_vpc.vpc_wordpress.id
+  route_table_id = aws_route_table.route_table_public_wordpress.id
+}
