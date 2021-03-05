@@ -1,4 +1,5 @@
 [![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
+![GitHub issues](https://img.shields.io/github/issues/rcranganu/aws-terraform-wordpress)
 
 > **This is still in Work in Progress**
 > 
