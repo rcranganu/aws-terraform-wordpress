@@ -1,6 +1,8 @@
 [![MIT license](https://img.shields.io/badge/license-MIT-brightgreen.svg)](http://opensource.org/licenses/MIT)
 
-** This is still in Work in Progress **
+> **This is still in Work in Progress**
+> 
+> **Anyone that wants to join as a contributor is WELCOMED**
 
 # AWS Terraform WordPress
 The poupose of this project is to build the infrastructure to build and deploy a fully working instance of WordPress in AWS.
@@ -20,3 +22,9 @@ The poupose of this project is to build the infrastructure to build and deploy a
     * _module name_ - is going to be used for the **sandbox** environment
     * _module name_**_uat**_ - is going to be used for the **uat/test** environment
     * _module name_**_prod**_ - is going to be used for the **production** environment
+
+## Authors
+The project is managed by [Razvan Cranganu](https://github.com/rcranganu)
+
+## License
+MIT Licensed. See [LICENSE](LICENSE) for full details.
