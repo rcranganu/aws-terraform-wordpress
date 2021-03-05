@@ -27,3 +27,8 @@ variable "eip_bastion" {
   description = "ID of EIP to associate with instance"
   type        = string
 }
+
+variable "iam_role" {
+  description = "Instance IAM Role"
+  type        = string
+}

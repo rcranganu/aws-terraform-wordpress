@@ -1,3 +1,8 @@
+resource "aws_iam_instance_profile" "bastion_profile" {
+  name = "cs-iam-profile-${var.environment}-bastion"
+  role = var.iam_role
+}
+
 # Create bastion instance
 resource "aws_instance" "bastion_instance" {
   availability_zone      = "${var.region}a"
@@ -5,6 +10,7 @@ resource "aws_instance" "bastion_instance" {
   instance_type          = "t2.micro"
   subnet_id              = var.instance_subnet_id
   vpc_security_group_ids = var.instance_security_group_ids
+  iam_instance_profile   = aws_iam_instance_profile.bastion_profile.name
   key_name               = "cs-key-${var.environment}"
 
   root_block_device {

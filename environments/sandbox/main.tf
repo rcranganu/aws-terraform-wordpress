@@ -5,10 +5,17 @@ module "network" {
   environment = var.environment
 }
 
+# Load security module
 module "security" {
   source                   = "../../modules/security"
   wordpress_vpc_id         = module.network.vpc_id
   wordpress_environment_id = var.environment
+}
+
+# Load IAM module
+module "iam" {
+  source      = "../../modules/iam"
+  environment = var.environment
 }
 
 # Create the s3 buckets
@@ -28,6 +35,7 @@ module "bastion" {
     module.security.sg_bastion_id
   ]
   eip_bastion = module.network.eip_bastion
+  iam_role    = module.iam.bastion_role_name
 }
 
 
