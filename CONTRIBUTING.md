@@ -13,6 +13,7 @@ This section will guide you through syubmitting a bug report fro **AWS Terraform
 
 Before creating a new bug, please check [this list](https://github.com/rcranganu/aws-terraform-wordpress/issues) to see if your bug is a known issue.
 
+teste
 ### Suggesting Enhancements
 TO BE UPDATED
 ### Documentation
