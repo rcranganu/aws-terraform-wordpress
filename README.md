@@ -28,6 +28,7 @@ The poupose of this project is to build the infrastructure to build and deploy a
 All the arhictures are based on AWS WordPress deployments best practices.
 
 ### Sandbox / Development environment
+![Sandbox/Development](https://github.com/rcranganu/aws-terraform-wordpress/blob/feature/docs-updates/images/aws-terraform-wordpress-sandbox.png)
 
 ## Authors
 The project is managed by [Razvan Cranganu](https://github.com/rcranganu)
