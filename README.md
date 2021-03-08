@@ -24,6 +24,11 @@ The poupose of this project is to build the infrastructure to build and deploy a
     * _module name_**_uat**_ - is going to be used for the **uat/test** environment
     * _module name_**_prod**_ - is going to be used for the **production** environment
 
+## Arhitecture
+All the arhictures are based on AWS WordPress deployments best practices.
+
+### Sandbox / Development environment
+
 ## Authors
 The project is managed by [Razvan Cranganu](https://github.com/rcranganu)
 
